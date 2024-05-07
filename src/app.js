@@ -1,6 +1,3 @@
-import MainController from "./controllers/MainController.js";
-import "./app.scss";
+import { sum } from "./math.js";
 
-document.addEventListener("DOMContentLoaded", () => {
-  new MainController();
-});
+console.log(sum(1, 2))
