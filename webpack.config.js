@@ -1,30 +1,33 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  mode : 'development',
+  mode: 'development',
   entry: {
-    main: "./src/app.js"
+    main: './src/app.js'
   },
   output: {
-    filename: "[name].js",
-    path: path.resolve("./dist")
+    filename: '[name].js',
+    path: path.resolve('./dist')
   },
   module: {
     rules: [
+      // {
+      //   test: /\.js$/,
+      //   use: path.resolve('./my-webpack-loader.js')
+      // }
       {
         test: /\.css$/,
-        use: ["style-loader"
-,          "css-loader",
-        ]
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.(png|jpg|svg|gif)$/,
-        loader: "url-loader",
+        loader: 'url-loader',
         options: {
-          name: "[name].[ext]?[hash]",
-          limit: 10000 // 10Kb
+          publicPath: './dist/',
+          name: '[name].[ext]?[hash]',
+          limit: 20000 // 20Kb
         }
-      },
+      }
     ]
-  },
+  }
 };
